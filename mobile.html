@@ -10,7 +10,7 @@
 <p id="mData">MOTION DATA: </p>
 </body>
 <script>
-var audioCtx = new (window.AudioContext || window.)
+var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 var oscillator
 var gainNode;
 var delayNode
