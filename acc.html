@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <p id="oData"> </p>
+  <p id ="mData"></p>
+</body>
+
+<script type="text/javascript">
+
+var onOrientationChange = function(data){
+  //document.getElementById('onData').innerHTML = "ORIENTATION DATA: " + data;
+
+
+    document.getElementById('oData').innerHTML = "Alpha " + data.alpha + "<br/>" + "Beta " + data.beta + "<br/>" + "Gamma " + data.gamma + "<br/>";//key + ": " + data[key] + "<br />";
+
+  //console.log(data);
+};
+
+if(window.DeviceOrientationEvent){
+  window.addEventListener('deviceorientation',onOrientationChange,false);
+}else{
+  console.log("ERROR");
+}
+
+
+
+
+
+var onDeviceMotion = function(data){
+
+  document.getElementById('mData').innerHTML = "X " + data.accelerationIncludingGravity.x + "<br/>" + "Y " + data.accelerationIncludingGravity.y + "<br/>" + "Z " + data.accelerationIncludingGravity.z + "<br/>";//key + ": " + data[key] + "<br />";
+
+  console.log(data);
+};
+
+
+if(window.DeviceMotionEvent){
+  window.addEventListener('devicemotion',onDeviceMotion,false);
+}else{
+  console.log("ERROR");
+}
+
+
+</script>
+</html>
