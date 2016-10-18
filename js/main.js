@@ -24,43 +24,46 @@ function draw(){
   if(WIDTH != window.innerWidth || HEIGHT != window.innerHeight) {
     document.getElementById('x').reload();
   }
-
-
-  //check if mobile
-  if(isMobile.any()){
-    fill(255,0,0);
-    ellipse(WIDTH/2,HEIGHT/2,100,100);
-  }else{
-    fill(0,255,0);
-    ellipse(WIDTH/2,HEIGHT/2,100,100);
-  }
+  controller();
 }
 
 
 
 function controller(){
+  //check mobile
+  if(isMobile.any()){
+    //fill(255,0,0);
+    //ellipse(WIDTH/2,HEIGHT/2,100,100);
+    console.log('mobile'); //debug
+    return;
+  }else{
+    //fill(0,255i,0);
+    //ellipse(WIDTH/2,HEIGHT/2,100,100);
+    console.log('desktop');  //debug
+    return;
+  }
 
 }
 
 
 //reference https://www.abeautifulsite.net/detecting-mobile-devices-with-javascript
 var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
+  Android: function() {
+    return navigator.userAgent.match(/Android/i);
+  },
+  BlackBerry: function() {
+    return navigator.userAgent.match(/BlackBerry/i);
+  },
+  iOS: function() {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function() {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function() {
+    return navigator.userAgent.match(/IEMobile/i);
+  },
+  any: function() {
+    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+  }
 };
