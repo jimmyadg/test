@@ -35,12 +35,10 @@ function controller(){
     fill(255,0,0);
     ellipse(WIDTH/2,HEIGHT/2,100,100);
     console.log('mobile'); //debug
-    return;
   }else{
-    fill(0,255i,0);
+    fill(0,255,0);
     ellipse(WIDTH/2,HEIGHT/2,100,100);
     console.log('desktop');  //debug
-    return;
   }
 
 }
