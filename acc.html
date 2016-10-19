@@ -32,7 +32,7 @@ if(window.DeviceOrientationEvent){
 
 var onDeviceMotion = function(data){
 
-  document.getElementById('mData').innerHTML = "X " + data.accelerationIncludingGravity.x + "<br/>" + "Y " + data.accelerationIncludingGravity.y + "<br/>" + "Z " + data.accelerationIncludingGravity.z + "<br/>";//key + ": " + data[key] + "<br />";
+  document.getElementById('mData').innerHTML = "X " + data.acceleration.x + "<br/>" + "Y " + data.accelerationIncludingGravity.y + "<br/>" + "Z " + data.accelerationIncludingGravity.z + "<br/>";//key + ": " + data[key] + "<br />";
 
   console.log(data);
 };
