@@ -24,7 +24,7 @@ function setup(){
 
 function draw(){
   var onDeviceMotion = function(data) {
-    motion = map(Math.round(data.accelerationIncludingGravity.x)*100,-10,10,0,WIDTH);
+    motion = map(Math.round(data.accelerationIncludingGravity.x),-9,9,10,WIDTH-10);
     //console.log(data);
   };
 
