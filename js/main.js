@@ -1,16 +1,10 @@
 var WIDTH, HEIGHT;
 var enemies = {};
 var deviceID = 0;
+var motion =0;
 
-var onDeviceMotion = function(data) {
-  console.log(data);
-};
 
-if(window.DeviceMotionEvent){
-  window.addEventListener('devicemotion',onDeviceMotion,false);
-}else{
-  console.log('not mobile device');
-}
+
 
 function setup(){
   WIDTH = window.innerWidth;
@@ -29,6 +23,11 @@ function setup(){
 
 
 function draw(){
+  var onDeviceMotion = function(data) {
+    motion = map(data.accelerationIncludingGravity.x,-9,9,0,WIDTH);
+    //console.log(data);
+  };
+
   background(0);
   WIDTH = window.innerWidth;
   HEIGHT = window.innerHeight;
@@ -37,6 +36,13 @@ function draw(){
   if(WIDTH != window.innerWidth || HEIGHT != window.innerHeight) {
     document.getElementById('x').reload();
   }
+
+  if(window.DeviceMotionEvent){
+    window.addEventListener('devicemotion',onDeviceMotion,false);
+  }else{
+    console.log('not mobile device');
+  }
+
   player();
 }
 
@@ -44,7 +50,7 @@ function logic(){
   switch (expression) {
     case expression:
 
-      break;
+    break;
 
   }
 }
@@ -64,10 +70,9 @@ function controller(){
 }
 
 
-function player(data){
+function player(){
   if(deviceID == 1){
     //mobile
-    var motion = map(data.accelerationIncludingGravity.x,-9,9,0,WIDTH);
     fill(255,0,0);
     ellipse(motion, HEIGHT-100,100,100);
   }else if(deviceID ==2){
