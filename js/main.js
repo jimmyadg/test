@@ -67,8 +67,9 @@ function controller(){
 function player(data){
   if(deviceID == 1){
     //mobile
+    var motion = map(data.accelerationIncludingGravity.x,-9,9,0,WIDTH);
     fill(255,0,0);
-    ellipse(data.accelerationIncludingGravity.x, HEIGHT-100,100,100);
+    ellipse(motion, HEIGHT-100,100,100);
   }else if(deviceID ==2){
     //desktop
     fill(255,0,0);
