@@ -2,6 +2,15 @@ var WIDTH, HEIGHT;
 var enemies = {};
 var deviceID = 0;
 
+var onDeviceMotion = function(data) {
+  console.log(data);
+};
+
+if(window.DeviceMotionEvent){
+  window.addEventListener('devicemotion',onDeviceMotion,false);
+}else{
+  console.log('not mobile device');
+}
 
 function setup(){
   WIDTH = window.innerWidth;
@@ -55,11 +64,11 @@ function controller(){
 }
 
 
-function player(){
+function player(data){
   if(deviceID == 1){
     //mobile
     fill(255,0,0);
-    ellipse(0, HEIGHT-100,100,100);
+    ellipse(data.accelerationIncludingGravity.x, HEIGHT-100,100,100);
   }else if(deviceID ==2){
     //desktop
     fill(255,0,0);
