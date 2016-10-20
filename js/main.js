@@ -11,8 +11,6 @@ function preload(){
 }
 
 function setup(){
-  mic = new p5.AudioIn();
-  mic.start();
   WIDTH = window.innerWidth;
   HEIGHT = window.innerHeight;
   createCanvas(WIDTH,HEIGHT);
@@ -88,6 +86,8 @@ function controller(){
   }else{
     //fill(0,255,0);
     //ellipse(WIDTH/2,HEIGHT/2,100,100);
+    mic = new p5.AudioIn();
+    mic.start();
     console.log('desktop');  //debug
     deviceID = 2;
   }
