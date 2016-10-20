@@ -43,7 +43,7 @@ function draw(){
   }
   //console.log(mic.getLevel());
 
-  if(deviceID ==2 && mic.getLevel() >=0.01){
+  if(deviceID ==2 && mic.getLevel() >=0.1){
     if(Date.now()%5 == 0){
         beamPosX = mouseX;
         beamPosY = HEIGHT - imgH*3;
