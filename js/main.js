@@ -83,11 +83,11 @@ function player(){
   if(deviceID == 1){
     //mobile
     //fill(255,0,0);
-    image(img,motion-imgW/2,HEIGHT-imgH,imgW,imgH);
+    image(img,motion-imgW/2,HEIGHT-imgH*2,imgW,imgH);
   }else if(deviceID ==2){
     //desktop
     //fill(255,0,0);
-    image(img,mouseX-imgW/2,HEIGHT-imgH,imgW,imgH);
+    image(img,mouseX-imgW/2,HEIGHT-imgH*2,imgW,imgH);
   }
 }
 
@@ -123,7 +123,7 @@ function enemies() {
 
 function mousePressed(){
   beamPosX = mouseX;
-  beamPosY = HEIGHT - imgH*2;
+  beamPosY = HEIGHT - imgH*3;
   if(deviceID == 2){
     return true;
   }else{
@@ -133,7 +133,7 @@ function mousePressed(){
 
 function touchStarted(){
   beamPosX = motion;
-  beamPosY = HEIGHT - imgH*4;
+  beamPosY = HEIGHT - imgH*3;
   if(deviceID == 1){
     return true;
   }else{
