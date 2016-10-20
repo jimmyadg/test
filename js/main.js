@@ -46,7 +46,7 @@ function draw(){
   //console.log(mic.getLevel());
 
   if(mic.getLevel() >=0.1){
-    if(Date.now()%10 == 0){
+    if(Date.now()%5 == 0){
       if(deviceID ==1){
         beamPosX = motion;
         beamPosY = HEIGHT - imgH*4;
@@ -146,12 +146,12 @@ function enemies() {
 //   }
 // }
 //
-// function touchStarted(){
-//   beamPosX = motion;
-//   beamPosY = HEIGHT - imgH*4;
-//   if(deviceID == 1){
-//     return true;
-//   }else{
-//     return false;
-//   }
-// }
+function touchStarted(){
+  beamPosX = motion;
+  beamPosY = HEIGHT - imgH*4;
+  if(deviceID == 1){
+    return true;
+  }else{
+    return false;
+  }
+}
