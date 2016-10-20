@@ -1,9 +1,9 @@
-var WIDTH, HEIGHT;
+var WIDTH, HEIGHT,ct;
 var enemies = {};
 var deviceID = 0;
 var motion =0;
-
-
+var beamPosX,beamPosY;
+var pt =0;
 
 
 function setup(){
@@ -44,15 +44,21 @@ function draw(){
   }
 
   player();
+  logic();
 }
 
 function logic(){
-  switch (expression) {
-    case expression:
+  ct = Date.now();
+  console.log(ct-pt);
+    if(beamPosX && beamPosY > 0){
+      fill(100);
+      rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/8);
+      if(ct - pt >= 1){
+        beamPosY-=6;
+        pt = ct;
+      }
+    }
 
-    break;
-
-  }
 }
 
 function controller(){
@@ -110,3 +116,16 @@ var isMobile = {
 function enemies() {
 
 };
+
+
+function mouseClicked(){
+  beamPosX = mouseX;
+  beamPosY = HEIGHT-250;
+  return false;
+}
+
+function touchStarted(){
+  beamPosX = touchX;
+  beamPosY = HEIGHT-250;
+  return false;
+}
