@@ -1,29 +1,27 @@
-var WIDTH, HEIGHT,ct;
+var WIDTH, HEIGHT,ct,img,mgW,imgH;
 var enemies = {};
 var deviceID = 0;
 var motion =0;
 var beamPosX,beamPosY;
 var pt =0;
-var c;
 
+
+function preload(){
+  img = loadImage('asset/img.png');
+}
 
 function setup(){
   WIDTH = window.innerWidth;
   HEIGHT = window.innerHeight;
   createCanvas(WIDTH,HEIGHT);
   noStroke();
-  //background(0);
-
-  // if( isMobile.any() ){
-  //   console.log('Mobile');
-  // } else{
-  //   console.log('Desktop');
-  // }
   controller();
 }
 
 
 function draw(){
+  imgW = img.width/2;
+  imgH = img.height/2;
   var onDeviceMotion = function(data) {
     motion = map(Math.round(data.accelerationIncludingGravity.x),-9,9,10,WIDTH-10);
     //console.log(data);
@@ -88,8 +86,8 @@ function player(){
     ellipse(motion, HEIGHT-100,100,100);
   }else if(deviceID ==2){
     //desktop
-    fill(255,0,0);
-    ellipse(mouseX, HEIGHT-100,100,100);
+    //fill(255,0,0);
+    image(img,mouseX-imgW/2,HEIGHT-imgH,imgW,imgH);
   }
 }
 
@@ -125,7 +123,7 @@ function enemies() {
 
 function mousePressed(){
   beamPosX = mouseX;
-  beamPosY = HEIGHT-250;
+  beamPosY = HEIGHT - imgH*2;
   if(deviceID == 2){
     return true;
   }else{
@@ -135,7 +133,7 @@ function mousePressed(){
 
 function touchStarted(){
   beamPosX = touchX;
-  beamPosY = HEIGHT-300;
+  beamPosY = HEIGHT - imgH*2;
   if(deviceID == 1){
     return true;
   }else{
