@@ -132,8 +132,8 @@ function mousePressed(){
 }
 
 function touchStarted(){
-  beamPosX = touchX;
-  beamPosY = HEIGHT - imgH*2;
+  beamPosX = motion;
+  beamPosY = HEIGHT - imgH*4;
   if(deviceID == 1){
     return true;
   }else{
