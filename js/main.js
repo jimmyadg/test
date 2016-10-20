@@ -133,7 +133,7 @@ function mousePressed(){
 
 function touchStarted(){
   beamPosX = motion;
-  beamPosY = HEIGHT - imgH*3;
+  beamPosY = HEIGHT - imgH*4;
   if(deviceID == 1){
     return true;
   }else{
