@@ -4,6 +4,7 @@ var deviceID = 0;
 var motion =0;
 var beamPosX,beamPosY;
 var pt =0;
+var c;
 
 
 function setup(){
@@ -50,14 +51,18 @@ function draw(){
 function logic(){
   ct = Date.now();
   console.log(ct-pt);
-    if(beamPosX && beamPosY > 0){
-      fill(100);
-      rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/8);
-      if(ct - pt >= 1){
+  if(beamPosX && beamPosY > 0){
+    fill(100);
+    rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/8);
+    if(ct - pt >= 1){
+      if(deviceID == 1){
+        beamPosY-=10;
+      }else if(deviceID == 2){
         beamPosY-=6;
-        pt = ct;
       }
+      pt = ct;
     }
+  }
 
 }
 
@@ -118,14 +123,22 @@ function enemies() {
 };
 
 
-function mouseClicked(){
+function mousePressed(){
   beamPosX = mouseX;
   beamPosY = HEIGHT-250;
-  return false;
+  if(deviceID == 2){
+    return true;
+  }else{
+    return false;
+  }
 }
 
 function touchStarted(){
   beamPosX = touchX;
   beamPosY = HEIGHT-300;
-  return false;
+  if(deviceID == 1){
+    return true;
+  }else{
+    return false;
+  }
 }
