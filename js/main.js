@@ -50,8 +50,8 @@ function logic(){
   ct = Date.now();
   console.log(ct-pt);
   if(beamPosX && beamPosY > 0){
-    fill(100);
-    rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/8);
+    fill(254,255,252);
+    rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/12);
     if(ct - pt >= 1){
       if(deviceID == 1){
         beamPosY-=10;
