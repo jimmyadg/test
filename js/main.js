@@ -45,7 +45,7 @@ function draw(){
   }
   //console.log(mic.getLevel());
 
-  if(mic.getLevel() >=0.1){
+  if(mic.getLevel() >=0.01){
     if(Date.now()%5 == 0){
       if(deviceID ==1){
         beamPosX = motion;
