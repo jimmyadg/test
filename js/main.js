@@ -43,17 +43,12 @@ function draw(){
   }
   //console.log(mic.getLevel());
 
-  if(mic.getLevel() >=0.01){
+  if(deviceID ==2 && mic.getLevel() >=0.01){
     if(Date.now()%5 == 0){
-      if(deviceID ==1){
-        beamPosX = motion;
-        beamPosY = HEIGHT - imgH*4;
-      }else if(deviceID == 2){
         beamPosX = mouseX;
         beamPosY = HEIGHT - imgH*3;
-      }
-    }
   }
+}
 
   player();
   logic();
