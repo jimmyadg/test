@@ -1,4 +1,4 @@
-var WIDTH, HEIGHT,ct,img,mgW,imgH;
+var WIDTH, HEIGHT,ct,img,mgW,imgH,mic;
 var enemies = {};
 var deviceID = 0;
 var motion =0;
@@ -11,6 +11,8 @@ function preload(){
 }
 
 function setup(){
+  mic = new p5.AudioIn();
+  mic.start();
   WIDTH = window.innerWidth;
   HEIGHT = window.innerHeight;
   createCanvas(WIDTH,HEIGHT);
@@ -41,6 +43,19 @@ function draw(){
   }else{
     console.log('not mobile device');
   }
+  //console.log(mic.getLevel());
+
+  if(mic.getLevel() >=0.1){
+    if(Date.now()%10 == 0){
+      if(deviceID ==1){
+        beamPosX = motion;
+        beamPosY = HEIGHT - imgH*4;
+      }else if(deviceID == 2){
+        beamPosX = mouseX;
+        beamPosY = HEIGHT - imgH*3;
+      }
+    }
+  }
 
   player();
   logic();
@@ -48,7 +63,7 @@ function draw(){
 
 function logic(){
   ct = Date.now();
-  console.log(ct-pt);
+  //console.log(ct-pt);
   if(beamPosX && beamPosY > 0){
     fill(254,255,252);
     rect(beamPosX,beamPosY,WIDTH/300,HEIGHT/12);
@@ -121,22 +136,22 @@ function enemies() {
 };
 
 
-function mousePressed(){
-  beamPosX = mouseX;
-  beamPosY = HEIGHT - imgH*3;
-  if(deviceID == 2){
-    return true;
-  }else{
-    return false;
-  }
-}
-
-function touchStarted(){
-  beamPosX = motion;
-  beamPosY = HEIGHT - imgH*4;
-  if(deviceID == 1){
-    return true;
-  }else{
-    return false;
-  }
-}
+// function mousePressed(){
+//   beamPosX = mouseX;
+//   beamPosY = HEIGHT - imgH*3;
+//   if(deviceID == 2){
+//     return true;
+//   }else{
+//     return false;
+//   }
+// }
+//
+// function touchStarted(){
+//   beamPosX = motion;
+//   beamPosY = HEIGHT - imgH*4;
+//   if(deviceID == 1){
+//     return true;
+//   }else{
+//     return false;
+//   }
+// }
