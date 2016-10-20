@@ -82,8 +82,8 @@ function controller(){
 function player(){
   if(deviceID == 1){
     //mobile
-    fill(255,0,0);
-    ellipse(motion, HEIGHT-100,100,100);
+    //fill(255,0,0);
+    image(img,motion-imgW/2,HEIGHT-imgH,imgW,imgH);
   }else if(deviceID ==2){
     //desktop
     //fill(255,0,0);
