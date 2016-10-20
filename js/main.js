@@ -124,8 +124,8 @@ function mouseClicked(){
   return false;
 }
 
-// function touchStarted(){
-//   beamPosX = touchX;
-//   beamPosY = HEIGHT-250;
-//   return false;
-// }
+function touchStarted(){
+  beamPosX = touchX;
+  beamPosY = HEIGHT-300;
+  return false;
+}
